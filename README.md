@@ -34,3 +34,25 @@ sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.list << EOF
 deb [signed-by=/usr/share/keyrings/xlion-repo.gpg] https://rustdesk-apt-repo.xlion.dev/latest main main
 EOF
 ```
+
+## Cloudflare R2 test
+
+Starting from 2024/10/15, this repo and [rustdesk-rpm-repo](https://github.com/xlionjuan/rustdesk-rpm-repo) will push to Cloudflare R2 every day, it **should** charge any fees.
+
+Because the free plan has Class A Operations 1 million requests / month, and 10GB storage / month.
+
+<https://developers.cloudflare.com/r2/pricing/>
+
+<hr>
+
+Lets's calc the total oprations if we run both APT and RPM repo everyday:
+
+The total generated files excluding `*.repo`, `pubkey.gpg` and `index.html` is 116, let's overestimate it: 150
+
+1 million = 1,000,000
+
+I'm new to S3 or R2, I'm not sure how deleting caculated in oprations.
+
+And let me overestimate again!:
+
+1,000,000/(150\*31day\*5(overestimate)) = 21.5 Still have left! 

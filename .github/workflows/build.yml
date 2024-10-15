@@ -1,13 +1,11 @@
 name: Create Repo for RustDesk ALL
 
 on:
-  #schedule:
-    # Every Saturday at 3AM UTC
-    #- cron: "0 3 * * 6"
+  schedule:
+     #Every day at 3AM UTC
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
-
-  
 env:
     REPO_NAME_LATEST: xlion-rustdesk-latest-apt-repo
     REPO_NAME_NIGHTLY: xlion-rustdesk-nightly-apt-repo
