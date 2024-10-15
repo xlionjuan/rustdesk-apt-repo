@@ -37,9 +37,11 @@ EOF
 
 ## Cloudflare R2 test
 
-Starting from 2024/10/15, this repo and [rustdesk-rpm-repo](https://github.com/xlionjuan/rustdesk-rpm-repo) will push to Cloudflare R2 every day, it **should** charge any fees.
+Starting from 2024/10/15, this repo and [rustdesk-rpm-repo](https://github.com/xlionjuan/rustdesk-rpm-repo) will push to Cloudflare R2 every day, it **should** not charge any fees.
 
 Because the free plan has Class A Operations 1 million requests / month, and 10GB storage / month.
+
+Egress (data transfer to Internet) is free.
 
 <https://developers.cloudflare.com/r2/pricing/>
 
