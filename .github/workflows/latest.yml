@@ -87,6 +87,9 @@ jobs:
         - build-nightly
       
       steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
         - name: Download artifact latest
           uses: actions/download-artifact@v4
           with:
