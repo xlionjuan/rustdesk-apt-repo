@@ -25,9 +25,12 @@ echo "$DEB_URLS"
 echo ""
 echo "-------------------DOWNLOADING------------------"
 
-# Loop through each URL and download the .deb files
-for url in $DEB_URLS; do
-    wget "$url" &
-done
+# wget2 can download at once
+wget $url
 
-wait
+# Loop through each URL and download the .deb files
+#for url in $DEB_URLS; do
+    #wget "$url" &
+#done
+
+#wait

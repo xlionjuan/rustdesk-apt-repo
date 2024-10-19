@@ -18,6 +18,7 @@ jobs:
     build-latest:
       name: Build latest
       runs-on: ubuntu-latest
+      container: ghcr.io/xlionjuan/fedora-createrepo-image:latest
       steps:
         - name: Checkout code
           uses: actions/checkout@v4
@@ -25,7 +26,7 @@ jobs:
         - name: Download RustDesk
           run: dpkg-deb --build rustdesk-server-meta rustdesk-server-meta.deb & bash rustdesk_latest.sh & bash rustdesk-server_latest.sh
 
-        - uses: morph027/apt-repo-action@v3.3
+        - uses: xlionjuan/apt-repo-action@main
           id: create-apt-repo_latest
           with:
             repo-name: ${{ env.REPO_NAME_LATEST }}
@@ -46,6 +47,7 @@ jobs:
     build-nightly:
       name: Build nightly
       runs-on: ubuntu-latest
+      container: ghcr.io/xlionjuan/fedora-createrepo-image:latest
       steps:
         - name: Checkout code
           uses: actions/checkout@v4
@@ -53,7 +55,7 @@ jobs:
         - name: Download RustDesk
           run: bash rustdesk_nightly.sh
 
-        - uses: morph027/apt-repo-action@v3.3
+        - uses: xlionjuan/apt-repo-action@main
           id: create-apt-repo_nightly
           with:
             repo-name: ${{ env.REPO_NAME_NIGHTLY }}
