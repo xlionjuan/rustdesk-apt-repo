@@ -26,7 +26,7 @@ echo ""
 echo "-------------------DOWNLOADING------------------"
 
 # wget2 can download at once
-wget $url
+wget $DEB_URLS
 
 # Loop through each URL and download the .deb files
 #for url in $DEB_URLS; do
