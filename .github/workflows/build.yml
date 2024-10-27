@@ -18,7 +18,7 @@ jobs:
     build-latest:
       name: Build latest
       runs-on: ubuntu-latest
-      container: ghcr.io/xlionjuan/fedora-createrepo-image:latest
+      container: ghcr.io/xlionjuan/fedora-createrepo-image-minimal:latest
       steps:
         - name: Checkout code
           uses: actions/checkout@v4
