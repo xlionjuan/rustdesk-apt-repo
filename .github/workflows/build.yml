@@ -15,8 +15,23 @@ env:
     # armhf is ARMv7 (32bit) 
   
 jobs:
+    verify:
+      name: Verify container
+      runs-on: ubuntu-latest
+      steps:
+        - name: Install Cosign
+          uses: sigstore/cosign-installer@v3.7.0
+
+        - name: Verify
+          run: |
+            cosign verify --rekor-url=https://rekor.sigstore.dev \
+            --certificate-identity-regexp "https://github.com/xlionjuan/.*" \
+            --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+            ghcr.io/xlionjuan/fedora-createrepo-image-minimal:latest
+
     build-latest:
       name: Build latest
+      needs: verify
       runs-on: ubuntu-latest
       container: ghcr.io/xlionjuan/fedora-createrepo-image-minimal:latest
       steps:
@@ -46,8 +61,9 @@ jobs:
 
     build-nightly:
       name: Build nightly
+      needs: verify
       runs-on: ubuntu-latest
-      container: ghcr.io/xlionjuan/fedora-createrepo-image:latest
+      container: ghcr.io/xlionjuan/fedora-createrepo-image-minimal:latest
       steps:
         - name: Checkout code
           uses: actions/checkout@v4
