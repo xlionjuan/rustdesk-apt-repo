@@ -1,6 +1,9 @@
 # rustdesk-apt-repo
 Marged version of RustDesk apt repo, but upload to Cloudflare R2.
 
+> [!IMPORTANT]  
+> Planed to deprecated on the end of November, 2024, this repo is just a POC.
+
 ## Add this repo
 ### Add GPG key
 Nightly and latest are sharing same GPG key.
