@@ -2,7 +2,10 @@
 Marged version of RustDesk apt repo, but upload to Cloudflare R2.
 
 > [!IMPORTANT]  
-> Planed to deprecated on the end of November, 2024, this repo is just a POC.
+> Deprecated now, go to [latest](https://github.com/xlionjuan/rustdesk-apt-repo-latest) or [nightly](https://github.com/xlionjuan/rustdesk-apt-repo-nightly).
+
+<details>
+<summary>deprecated</summary>
 
 ## Add this repo
 ### Add GPG key
@@ -37,6 +40,8 @@ sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.list << EOF
 deb [signed-by=/usr/share/keyrings/xlion-repo.gpg] https://rustdesk-apt-repo.xlion.dev/latest main main
 EOF
 ```
+</details>
+
 
 ## Cloudflare R2 test
 
@@ -61,3 +66,7 @@ I'm new to S3 or R2, I'm not sure how deleting caculated in oprations.
 And let me overestimate again!:
 
 1,000,000/(150\*31day\*5(overestimate)) = 21.5 Still have left! 
+
+Result:
+
+![](Screenshot-20241128-1k-operations.png)

@@ -1,9 +1,9 @@
 name: Create Repo for RustDesk ALL
 
 on:
-  schedule:
+  #schedule:
      #Every day at 3AM UTC
-    - cron: "0 3 * * *"
+    #- cron: "0 3 * * *"
   workflow_dispatch:
 
 env:
